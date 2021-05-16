@@ -469,7 +469,7 @@ if __name__ == '__main__':
     resume_training_at = None
 
     validation_A_dir_default = './data/set_a/'
-    output_A_dir_default = './converted_sound/set_a'
+    output_A_dir_default = './converted_sound/set_a/'
 
     validation_B_dir_default = './data/set_b/'
     output_B_dir_default = './converted_sound/set_b/'

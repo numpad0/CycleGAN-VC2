@@ -10,6 +10,7 @@ import torch
 import time
 import librosa
 import pickle
+import soundfile as sf
 
 import preprocess
 from trainingDataset import trainingDataset
@@ -355,9 +356,7 @@ class CycleGANTraining(object):
                                                                 ap=ap,
                                                                 fs=sampling_rate,
                                                                 frame_period=frame_period)
-            librosa.output.write_wav(path=os.path.join(output_A_dir, os.path.basename(file)),
-                                     y=wav_transformed,
-                                     sr=sampling_rate)
+            sf.write(os.path.join(output_A_dir, os.path.basename(file)), wav_transformed, sampling_rate, 'PCM_24')
 
     def validation_for_B_dir(self):
         num_mcep = 36
@@ -408,9 +407,8 @@ class CycleGANTraining(object):
                                                                 ap=ap,
                                                                 fs=sampling_rate,
                                                                 frame_period=frame_period)
-            librosa.output.write_wav(path=os.path.join(output_B_dir, os.path.basename(file)),
-                                     y=wav_transformed,
-                                     sr=sampling_rate)
+            sf.write(os.path.join(output_B_dir, os.path.basename(file)), wav_transformed, sampling_rate, 'PCM_24')
+
 
     def savePickle(self, variable, fileName):
         with open(fileName, 'wb') as f:

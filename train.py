@@ -262,24 +262,24 @@ class CycleGANTraining(object):
                             d_loss.item(), generator_loss_A2B, generator_loss_B2A, identiyLoss, cycleLoss, d_loss_A,
                             d_loss_B))
 
-            #                 if num_iterations % 50 == 0:
-            #                     store_to_file = "Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
-            #                         num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B, generator_loss_B2A,
-            #                         identiyLoss, cycleLoss, d_loss_A, d_loss_B)
-            #                     print(
-            #                         "Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
-            #                             num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B,
-            #                             generator_loss_B2A, identiyLoss, cycleLoss, d_loss_A, d_loss_B))
-            #                     self.store_to_file(store_to_file)
+                            if num_iterations % 50 == 0:
+                                store_to_file = "Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
+                                    num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B, generator_loss_B2A,
+                                    identiyLoss, cycleLoss, d_loss_A, d_loss_B)
+                                print(
+                                    "Iter:{}\t Generator Loss:{:.4f} Discrimator Loss:{:.4f} \tGA2B:{:.4f} GB2A:{:.4f} G_id:{:.4f} G_cyc:{:.4f} D_A:{:.4f} D_B:{:.4f}".format(
+                                        num_iterations, generator_loss.item(), d_loss.item(), generator_loss_A2B,
+                                        generator_loss_B2A, identiyLoss, cycleLoss, d_loss_A, d_loss_B))
+                                self.store_to_file(store_to_file)
 
-            #             end_time = time.time()
-            #             store_to_file = "Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
-            #                 epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch)
-            #             self.store_to_file(store_to_file)
-            #             print("Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
-            #                 epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch))
+                        end_time = time.time()
+                        store_to_file = "Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
+                            epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch)
+                        self.store_to_file(store_to_file)
+                        print("Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
+                            epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch))
 
-            if epoch % 2000 == 0 and epoch != 0:
+            if epoch % 250 == 0 and epoch != 0:
                 end_time = time.time()
                 store_to_file = "Epoch: {} Generator Loss: {:.4f} Discriminator Loss: {}, Time: {:.2f}\n\n".format(
                     epoch, generator_loss.item(), d_loss.item(), end_time - start_time_epoch)

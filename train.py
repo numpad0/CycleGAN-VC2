@@ -17,7 +17,7 @@ from trainingDataset import trainingDataset
 from model_tf import Generator, Discriminator
 from tqdm import tqdm
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 
 class CycleGANTraining(object):
@@ -465,14 +465,14 @@ if __name__ == '__main__':
     coded_sps_A_norm = './cache/coded_sps_A_norm.pickle'
     coded_sps_B_norm = './cache/coded_sps_B_norm.pickle'
     model_checkpoint = './model_checkpoint/'
-    resume_training_at = './model_checkpoint/_CycleGAN_CheckPoint'
-    #     resume_training_at = None
+    # resume_training_at = './model_checkpoint/_CycleGAN_CheckPoint'
+    resume_training_at = None
 
-    validation_A_dir_default = './data/S0913/'
-    output_A_dir_default = './converted_sound/S0913'
+    validation_A_dir_default = './data/set_a/'
+    output_A_dir_default = './converted_sound/set_a'
 
-    validation_B_dir_default = './data/gaoxiaosong/'
-    output_B_dir_default = './converted_sound/gaoxiaosong/'
+    validation_B_dir_default = './data/set_b/'
+    output_B_dir_default = './converted_sound/set_b/'
 
     parser.add_argument('--logf0s_normalization', type=str,
                         help="Cached location for log f0s normalized", default=logf0s_normalization_default)
